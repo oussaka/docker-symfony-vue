@@ -1,23 +1,26 @@
 version: '2'
 
 services:
-    postgres:
-        image: postgres:9.6
-        ports:
-            - ${POSTGRES_PORT}:5432
+    db:
+        image: docker/mysql
+        volumes:
+            - "./.data/db:/var/lib/mysql"
         environment:
-            POSTGRES_DB: ${POSTGRES_DB}
-            POSTGRES_USER: ${POSTGRES_USER}
-            POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
-
+            MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+            MYSQL_DATABASE: ${MYSQL_DATABASE}
+            MYSQL_USER: ${MYSQL_USER}
+            MYSQL_PASSWORD: ${MYSQL_PASSWORD}
     php:
-        build: docker/php7-fpm
+        build:
+            context: docker/php7-fpm
+            args:
+                TIMEZONE: ${TIMEZONE}
         env_file: ./.env
         volumes:
-            - ${PWD}:/var/www/symfony
+            - ${SYMFONY_APP_PATH}:/var/www/symfony
+            - ./logs/symfony:/var/www/symfony/app/logs
         links:
-            - postgres
-
+            - db
     nginx:
         build: docker/nginx
         ports:
@@ -26,7 +29,6 @@ services:
             - php
         volumes:
             - ${LOGS_DIR}/nginx/:/var/log/nginx
-
     elk:
         image: willdurand/elk
         ports:
@@ -37,7 +39,6 @@ services:
         volumes_from:
             - php
             - nginx
-
     redis:
         image: redis:3.2.10
 
