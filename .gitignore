@@ -1,17 +1,22 @@
-### IDE
-.idea/
-
-### Environement
+/logs
+/.data
 .env
 
-### Cache, session files and logs (Symfony3)
+/.web-server-pid
+/app/config/parameters.yml
+/build/
+/phpunit.xml
+/var/*
+!/var/cache
 /var/cache/*
-/var/logs/*
 !var/cache/.gitkeep
+!/var/logs
+/var/logs/*
 !var/logs/.gitkeep
-
-### Managed by Composer
-/var/bootstrap.php.cache
+!/var/sessions
+/var/sessions/*
+!var/sessions/.gitkeep
+!var/SymfonyRequirements.php
 /vendor/
 
 ### Assets and user uploads
