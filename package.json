@@ -2,11 +2,9 @@
   "name": "docker-symfony-vuejs",
   "version": "0.1.0",
   "description": "A Vue.js project",
-  "author": "Eleven Labs",
+  "author": "",
   "private": true,
   "repository": {
-    "type": "git",
-    "url": "https://github.com/elevan-labs/docker-symfony-vuejs"
   },
   "scripts": {
     "dev": "NODE_ENV=dev webpack --config ./app/config/webpack.conf.js --devtool source-map --debug --watch --display-error-details",
