@@ -13,7 +13,7 @@ class ApiController extends FOSRestController
 {
     /**
     * @Rest\View()
-    * @Rest\Get("api/hello/{astronaut}", defaults={"astronaut" = null})
+    * @Rest\Get("hello/{astronaut}", defaults={"astronaut" = null})
     *
     * @param string $astronaut
     *

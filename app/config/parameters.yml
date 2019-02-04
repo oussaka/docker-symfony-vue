@@ -1,10 +1,10 @@
 parameters:
     # Database parameters
-    database_host: postgres
-    database_port: '%env(POSTGRES_PORT)%'
-    database_name: '%env(POSTGRES_DB)%'
-    database_user: '%env(POSTGRES_USER)%'
-    database_password: '%env(POSTGRES_PASSWORD)%'
+    database_host: db
+    database_port: '%env(MYSQL_PORT)%'
+    database_name: '%env(MYSQL_DATABASE)%'
+    database_user: '%env(MYSQL_USER)%'
+    database_password: '%env(MYSQL_PASSWORD)%'
 
     # Mailer parameters
     mailer_transport: %env(SMTP_TRANSPORT)%

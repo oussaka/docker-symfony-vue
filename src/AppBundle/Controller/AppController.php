@@ -2,40 +2,30 @@
 
 namespace AppBundle\Controller;
 
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\Routing\Annotation\Route;
 
-/**
- * Class DefaultController
- * @package AppBundle\Controller
- */
 class AppController extends Controller
 {
-  const DEFAULT_LIMIT = 6;
     /**
-     * @Route(
-     *     name="app_homepage"
-     * )
-     *
-     * @return Response
+     * @Route("/", name="homepage")
      */
-    public function indexAction(): Response
+    public function indexAction(Request $request): Response
     {
-        return $this->render('@App/App/index.html.twig', [
-          'message'=>'hello !'
-          ]);
+        return $this->render('@App/App/page1.html.twig', [
+            'base_dir' => realpath($this->getParameter('kernel.project_dir')).DIRECTORY_SEPARATOR,
+             'message'=>'hello Symfony Vue!',
+        ]);
     }
+
     /**
-     * @Route(
-     *     "/page2",
-     *     name="page2"
-     * )
-     *
-     * @return Response
+     * @Route("/page2", name="page2")
      */
-    public function page2Action(): Response
+    public function page2Action(Request $request): Response
     {
-        return $this->render('@App/App/page2.html.twig', []);
+        return $this->render('@App/App/page2.html.twig', [
+        ]);
     }
 }
