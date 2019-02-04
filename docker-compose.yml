@@ -45,7 +45,9 @@ services:
         image: redis:4
 
     node:
-        build: docker/node
+        image: node:8
+        user: node
+        working_dir: /var/www/symfony
         volumes:
             - ${SYMFONY_APP_PATH}:/var/www/symfony
         command: bash -c "yarn && yarn dev"
