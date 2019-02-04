@@ -14,7 +14,7 @@ class AppController extends Controller
      */
     public function index(Request $request): Response
     {
-        return $this->render('@App/App/page1.html.twig', [
+        return $this->render('App/page1.html.twig', [
             'base_dir' => realpath($this->getParameter('kernel.project_dir')).DIRECTORY_SEPARATOR,
              'message'=>'hello Symfony Vue!',
         ]);
@@ -25,7 +25,7 @@ class AppController extends Controller
      */
     public function page2(Request $request): Response
     {
-        return $this->render('@App/App/page2.html.twig', [
+        return $this->render('App/page2.html.twig', [
         ]);
     }
 }

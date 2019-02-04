@@ -6,10 +6,11 @@
     "require": {
         "php": ">=7.2",
         "ext-iconv": "*",
-        "api-platform/api-pack": "^1.0",
         "doctrine/doctrine-bundle": "^1.6",
         "doctrine/doctrine-fixtures-bundle": "^3.0",
         "doctrine/orm": "^2.5",
+        "friendsofsymfony/rest-bundle": "^2.5",
+        "jms/serializer-bundle": "^3.1",
         "predis/predis": "^1.1",
         "snc/redis-bundle": "^2.0",
         "symfony/asset": "^4.0",
@@ -19,6 +20,7 @@
         "symfony/lts": "^4@dev",
         "symfony/monolog-bundle": "^3.1",
         "symfony/profiler-pack": "^1.0",
+        "symfony/serializer": "^4.0",
         "symfony/yaml": "^4.0",
         "twig/twig": "^1.0||^2.0"
     },
