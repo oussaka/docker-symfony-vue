@@ -45,3 +45,5 @@ phpunit.xml
 .phpunit
 /phpunit.xml
 ###< symfony/phpunit-bridge ###
+
+docker/logs/

@@ -1,19 +1,14 @@
-FROM debian:jessie
+FROM alpine:3.8
 
-MAINTAINER Maxence POUTORD <maxence.poutord@gmail.com>
-
-RUN apt-get update && apt-get install -y \
-    nginx
+RUN apk add --update nginx
+RUN rm -rf /var/cache/apk/* && rm -rf /tmp/*
+RUN rm -f /etc/nginx/nginx.conf /etc/nginx/conf.d/*
 
 ADD nginx.conf /etc/nginx/
-ADD symfony.conf /etc/nginx/sites-available/
+ADD upstream.conf /etc/nginx/conf.d/upstream.conf
+ADD symfony.conf /etc/nginx/conf.d/
 
-RUN ln -s /etc/nginx/sites-available/symfony.conf /etc/nginx/sites-enabled/symfony
-RUN rm /etc/nginx/sites-enabled/default
-
-RUN echo "upstream php-upstream { server php:9000; }" > /etc/nginx/conf.d/upstream.conf
-
-RUN usermod -u 1000 www-data
+RUN adduser -D -g '' -G www-data www-data
 
 CMD ["nginx"]
 
