@@ -1,33 +1,22 @@
-/logs
-/.data
+### IDE
+.idea/
+
+### Environement
 .env
 
-/.web-server-pid
-/app/config/parameters.yml
-/build/
-/phpunit.xml
-/var/*
-!/var/cache
-/var/cache/*
-!var/cache/.gitkeep
-!/var/logs
-/var/logs/*
-!var/logs/.gitkeep
-!/var/sessions
-/var/sessions/*
-!var/sessions/.gitkeep
-!var/SymfonyRequirements.php
+### Cache, session files and logs (Symfony4)
+/var/
+
+### Managed by Composer
 /vendor/
 
-### Assets and user uploads
-/web/bundles/
-/web/uploads/
+### Symfony : Assets and user uploads
+/public/bundles/
+/public/uploads/
+
 
 ### PHPUnit
 /phpunit.xml
-
-### Docker
-docker/logs/
 
 ### NodeJS - NPM - YARN
 node_modules/
@@ -37,8 +26,22 @@ yarn-error.log*
 coverage/
 
 ### Front
-src/AppBundle/Resources/public/js/
-src/AppBundle/Resources/public/css/
+public/build/
 
-### Build data
-/build/
+### symfony/phpunit-bridge
+.phpunit
+phpunit.xml
+
+###> symfony/framework-bundle ###
+/.env.local
+/.env.local.php
+/.env.*.local
+/public/bundles/
+/var/
+/vendor/
+###< symfony/framework-bundle ###
+
+###> symfony/phpunit-bridge ###
+.phpunit
+/phpunit.xml
+###< symfony/phpunit-bridge ###
