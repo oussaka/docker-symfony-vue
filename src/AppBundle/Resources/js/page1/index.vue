@@ -1,10 +1,9 @@
 <template>
-	<Message :text="message" />
+    <Message :text="message" />
 </template>
 
 <script>
 import Message from '../components/message/index.vue';
-
 export default {
   name: 'Page1Container',
   data() {

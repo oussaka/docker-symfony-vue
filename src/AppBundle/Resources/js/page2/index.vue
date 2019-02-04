@@ -1,5 +1,5 @@
 <template>
-	<Message :text="message" />
+  <Message :text="message" />
 </template>
 
 <script>
@@ -10,17 +10,17 @@ export default {
   data() {
     return {
         message: '',
-	};
+  };
   },
   components: {
     Message,
   },
-	mounted() {
+  mounted() {
       fetch('api/hello/wilson')
-		.then(response => response.json())
-		.then((message) =>
-		  this.message = message
-		)
+    .then(response => response.json())
+    .then((message) =>
+      this.message = message
+    )
   },
 };
 </script>
